@@ -6,7 +6,10 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "outDir": "build"
+        "outDir": "build",
+        "types": [
+            "core-js"
+        ]
     },
     "exclude": [
         "node_modules"
