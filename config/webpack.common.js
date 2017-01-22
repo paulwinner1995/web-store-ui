@@ -1,1 +1,10 @@
-// empty common webpack config
+var webpack = require('webpack');
+
+module.exports = {
+
+    entry: {},
+
+    module: {},
+
+    plugins: []
+};
