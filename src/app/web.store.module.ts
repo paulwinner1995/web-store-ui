@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { WebStoreRoutingModule } from './web-store-routing.module';
 
-import { MainComponent } from './common/main.component';
+import { DashboardComponent } from './common/dashboard/dashboard.component';
 
 @NgModule({
     imports: [
@@ -11,10 +11,10 @@ import { MainComponent } from './common/main.component';
         WebStoreRoutingModule
     ],
     declarations: [
-        MainComponent
+        DashboardComponent
     ],
     bootstrap: [
-        MainComponent
+        DashboardComponent
     ]
 })
 export class WebStoreModule { }

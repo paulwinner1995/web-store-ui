@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+
+    <!--TODO: Should replace it with local stored css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
@@ -10,8 +14,9 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+    <base href="/">
 </head>
 <body>
-    <web-store-ui>Test</web-store-ui>
+    <web-store-dashboard></web-store-dashboard>
 </body>
 </html>
