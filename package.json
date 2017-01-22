@@ -10,7 +10,8 @@
     "url": "https://github.com/paulwinner1995/web-store-ui/issues"
   },
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" "
+    "start-with-systemjs": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "run-dev": ""
   },
   "dependencies": {
     "@angular/common": "^2.4.4",

@@ -2,9 +2,14 @@ var webpack = require('webpack');
 
 module.exports = {
 
-    entry: {},
+    entry: {
+        'vendor': './src/web-store.vendor.ts',
+        'app': './src/web-store.main.ts'
+    },
 
-    module: {},
+    module: {
+        loaders: []
+    },
 
     plugins: []
 };
