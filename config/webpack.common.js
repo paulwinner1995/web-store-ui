@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -8,8 +9,34 @@ module.exports = {
     },
 
     module: {
-        loaders: []
+        rules: [
+            {
+                test: /\.ts$/,
+                loaders: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: {
+                            configFileName: 'tsconfig.json'
+                        }
+                    },
+                    'angular2-template-loader'
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            }
+
+        ]
     },
 
-    plugins: []
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor']
+        }),
+
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        })
+    ]
 };
