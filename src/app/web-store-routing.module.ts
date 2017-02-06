@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { RegistrationComponent } from './anonymous/registration/registration.component';
 
 const routes: Routes = [
     { path: '',  redirectTo: '/', pathMatch: 'full' },
+    { path: 'registration', component: RegistrationComponent }
 ];
 
 @NgModule({
