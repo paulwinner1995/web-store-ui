@@ -3,9 +3,8 @@ import { enableProdMode } from '@angular/core';
 
 import { WebStoreModule } from './app/web-store.module';
 
-// TODO: Should be uncommented when webpack will be fully configured
-// if (false) {
-//     enableProdMode();
-// }
+if (process.env.ENV === 'production') {
+    enableProdMode();
+}
 
 platformBrowserDynamic().bootstrapModule(WebStoreModule);
