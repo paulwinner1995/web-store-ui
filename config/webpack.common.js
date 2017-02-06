@@ -4,8 +4,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 
     entry: {
+        'polyfills': './src/web-store.polyfills.ts',
         'vendor': './src/web-store.vendor.ts',
         'app': './src/web-store.main.ts'
+    },
+
+    resolve: {
+        extensions: ['.ts', '.js']
     },
 
     module: {
@@ -32,7 +37,7 @@ module.exports = {
 
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor']
+            name: ['app', 'vendor', 'polyfills']
         }),
 
         new HtmlWebpackPlugin({
