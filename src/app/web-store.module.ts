@@ -7,6 +7,7 @@ import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { HeaderComponent } from './common/header/header.component';
 
 import { RegistrationComponent } from './anonymous/registration/registration.component';
+import { RegistrationService } from './anonymous/registration/registration.service';
 import { LoginComponent } from './anonymous/login/login.component';
 
 @NgModule({
@@ -19,6 +20,9 @@ import { LoginComponent } from './anonymous/login/login.component';
         HeaderComponent,
         RegistrationComponent,
         LoginComponent
+    ],
+    providers: [
+        RegistrationService
     ],
     bootstrap: [
         DashboardComponent
