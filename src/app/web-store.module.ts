@@ -1,4 +1,5 @@
 import { NgModule }      from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { WebStoreRoutingModule } from './web-store-routing.module';
@@ -13,6 +14,7 @@ import { LoginComponent } from './anonymous/login/login.component';
 @NgModule({
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         WebStoreRoutingModule
     ],
     declarations: [
