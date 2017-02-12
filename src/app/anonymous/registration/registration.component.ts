@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
-import {RegistrationService} from './registration.service';
+import { RegistrationService } from './registration.service';
 
 @Component({
     selector: 'web-store-registration',
@@ -13,8 +13,10 @@ export class RegistrationComponent {
 
     registrationForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder,
-                private registrationService: RegistrationService) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private registrationService: RegistrationService
+    ) {
         this.createForm();
     }
 
@@ -29,5 +31,11 @@ export class RegistrationComponent {
             address: ['', Validators.required],
             phoneNumber: ['', Validators.required]
         });
+    }
+
+    onSubmit() {
+        if (!this.registrationForm.valid) return;
+
+        this.registrationService.registerCustomer(this.registrationForm.value);
     }
 }

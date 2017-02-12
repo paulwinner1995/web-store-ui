@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { Http } from '@angular/http';
 
 import { WebStoreRoutingModule } from './web-store-routing.module';
 
@@ -14,6 +15,7 @@ import { LoginComponent } from './anonymous/login/login.component';
 @NgModule({
     imports: [
         BrowserModule,
+        Http,
         ReactiveFormsModule,
         WebStoreRoutingModule
     ],
