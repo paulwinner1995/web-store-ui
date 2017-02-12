@@ -1,4 +1,10 @@
 import { Injectable } from '@angular/core';
+import { RegistrationData } from './registration.data';
 
 @Injectable()
-export class RegistrationService {}
+export class RegistrationService {
+
+    registerCustomer(registrationData: RegistrationData) {
+
+    }
+}
