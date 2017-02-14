@@ -7,6 +7,7 @@ import { WebStoreRoutingModule } from './web-store-routing.module';
 
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { HeaderComponent } from './common/header/header.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 import { RegistrationComponent } from './anonymous/registration/registration.component';
 import { RegistrationService } from './anonymous/registration/registration.service';
@@ -22,6 +23,7 @@ import { LoginComponent } from './anonymous/login/login.component';
     declarations: [
         DashboardComponent,
         HeaderComponent,
+        FooterComponent,
         RegistrationComponent,
         LoginComponent
     ],
