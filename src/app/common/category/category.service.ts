@@ -16,15 +16,10 @@ export class CategoryService {
 
     fetchCategories() : Observable<Category[]> {
         return this.http.get(this.categoryUrl)
-            .map(this.extractData)
+            .map(resp => resp.json() || [])
             .catch(this.handleError);
     }
 
-    // TODO: Should investigate how to log errors in angular js
-    private extractData(res: Response) {
-        let body = res.json();
-        return body.data || [];
-    }
     private handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
