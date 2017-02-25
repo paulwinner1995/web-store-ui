@@ -18,8 +18,9 @@ import { RegistrationService } from './anonymous/registration/registration.servi
 import { LoginComponent } from './anonymous/login/login.component';
 import { SalesComponent } from "./sales/sales.component";
 import { SalesCategoryComponent } from "./sales/category/sales-category.component";
-import {SalesProductComponent} from "./sales/product/sales-product.component";
-import {SalesProductCatalogComponent} from "./sales/product/catalog/sales-product-catalog.component";
+import { SalesProductComponent } from "./sales/product/sales-product.component";
+import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
+import { ProductService } from "./common/product/product.service";
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import {SalesProductCatalogComponent} from "./sales/product/catalog/sales-produc
     ],
     providers: [
         RegistrationService,
-        CategoryService
+        CategoryService,
+        ProductService
     ],
     bootstrap: [
         DashboardComponent

@@ -11,4 +11,16 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3" *ngFor="let product of products">
+        <div class="thumbnail">
+            <div class="caption">
+                <p>{{product.name}}</p>
+                <div class="btn-group" role="group">
+                    <a class="btn btn-success">
+                        Подробно <span class="glyphicon glyphicon-plus-sign"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
