@@ -9,6 +9,7 @@ import { SalesComponent } from "./sales/sales.component";
 import { SalesDashboardComponent } from "./sales/dashboard/sales-dashboard.component";
 import { SalesCategoryComponent } from "./sales/category/sales-category.component";
 import { SalesProductComponent } from "./sales/product/sales-product.component";
+import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
 
 const routes: Routes = [
     { path: '',  redirectTo: '/', pathMatch: 'full' },
@@ -19,8 +20,13 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
             { path: 'dashboard', component: SalesDashboardComponent },
-            { path: 'product', component: SalesProductComponent },
-            { path: 'category', component: SalesCategoryComponent }
+            { path: 'category', component: SalesCategoryComponent },
+            { path: 'product', component: SalesProductComponent,
+                children: [
+                    { path: '', redirectTo: 'catalog', pathMatch: 'full'},
+                    { path: 'catalog', component: SalesProductCatalogComponent }
+                ]
+            }
         ]
     }
 ];
