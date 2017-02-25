@@ -17,6 +17,8 @@ import { RegistrationComponent } from './anonymous/registration/registration.com
 import { RegistrationService } from './anonymous/registration/registration.service';
 import { LoginComponent } from './anonymous/login/login.component';
 import { SalesComponent } from "./sales/sales.component";
+import { SalesCategoryComponent } from "./sales/category/sales-category.component";
+import {SalesProductComponent} from "./sales/product/sales-product.component";
 
 @NgModule({
     imports: [
@@ -34,7 +36,9 @@ import { SalesComponent } from "./sales/sales.component";
         CatalogComponent,
         CategoryComponent,
         SalesComponent,
-        SalesDashboardComponent
+        SalesDashboardComponent,
+        SalesProductComponent,
+        SalesCategoryComponent
     ],
     providers: [
         RegistrationService,

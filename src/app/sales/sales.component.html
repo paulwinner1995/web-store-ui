@@ -1,6 +1,22 @@
-<div>
-    <h1>Sales Component</h1>
-    <div class="container-fluid">
-        <router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a routerLink="dashboard">Кабинет</a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a routerLink="product">Товары</a>
+                </li>
+                <li>
+                    <a routerLink="category">Категории</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 main">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
