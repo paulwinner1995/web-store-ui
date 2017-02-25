@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { WebStoreRoutingModule } from './web-store-routing.module';
 
 import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { SalesDashboardComponent } from './sales/dashboard/sales-dashboard.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CatalogComponent } from './common/catalog/catalog.component';
@@ -15,6 +16,7 @@ import { CategoryService } from './common/category/category.service';
 import { RegistrationComponent } from './anonymous/registration/registration.component';
 import { RegistrationService } from './anonymous/registration/registration.service';
 import { LoginComponent } from './anonymous/login/login.component';
+import { SalesComponent } from "./sales/sales.component";
 
 @NgModule({
     imports: [
@@ -30,7 +32,9 @@ import { LoginComponent } from './anonymous/login/login.component';
         RegistrationComponent,
         LoginComponent,
         CatalogComponent,
-        CategoryComponent
+        CategoryComponent,
+        SalesComponent,
+        SalesDashboardComponent
     ],
     providers: [
         RegistrationService,
