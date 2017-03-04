@@ -10,6 +10,7 @@ import { SalesDashboardComponent } from "./sales/dashboard/sales-dashboard.compo
 import { SalesCategoryComponent } from "./sales/category/sales-category.component";
 import { SalesProductComponent } from "./sales/product/sales-product.component";
 import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
+import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
 
 const routes: Routes = [
     { path: '',  redirectTo: '/', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
             { path: 'product', component: SalesProductComponent,
                 children: [
                     { path: '', redirectTo: 'catalog', pathMatch: 'full'},
-                    { path: 'catalog', component: SalesProductCatalogComponent }
+                    { path: 'catalog', component: SalesProductCatalogComponent },
+                    { path: 'add', component: SalesProductAddComponent}
                 ]
             }
         ]

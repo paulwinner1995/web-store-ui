@@ -21,6 +21,7 @@ import { SalesCategoryComponent } from "./sales/category/sales-category.componen
 import { SalesProductComponent } from "./sales/product/sales-product.component";
 import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
 import { ProductService } from "./common/product/product.service";
+import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
 
 @NgModule({
     imports: [
@@ -41,7 +42,8 @@ import { ProductService } from "./common/product/product.service";
         SalesDashboardComponent,
         SalesProductComponent,
         SalesProductCatalogComponent,
-        SalesCategoryComponent
+        SalesCategoryComponent,
+        SalesProductAddComponent,
     ],
     providers: [
         RegistrationService,
