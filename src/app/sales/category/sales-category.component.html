@@ -2,33 +2,5 @@
     <h1 class="page-header">Категории</h1>
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p>Добавить категорию</p>
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-success">
-                            Новая категория <span class="glyphicon glyphicon-plus-sign"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3" *ngFor="let category of categories">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p>{{category.name}}</p>
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-success" role="button">
-                            Показать <span class="glyphicon glyphicon-folder-open"></span>
-                        </a>
-                        <a class="btn btn-primary" role="button">
-                            Изменить <span class="glyphicon glyphicon-pencil"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
 </div>

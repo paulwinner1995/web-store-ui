@@ -11,6 +11,8 @@ import { SalesCategoryComponent } from "./sales/category/sales-category.componen
 import { SalesProductComponent } from "./sales/product/sales-product.component";
 import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
 import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
+import {SalesCategoryOverviewComponent} from "./sales/category/overview/sales-category-overview.component";
+import {SalesCategoryAddComponent} from "./sales/category/new/sales-category-add.component";
 
 const routes: Routes = [
     { path: '',  redirectTo: '/', pathMatch: 'full' },
@@ -21,7 +23,13 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
             { path: 'dashboard', component: SalesDashboardComponent },
-            { path: 'category', component: SalesCategoryComponent },
+            { path: 'category', component: SalesCategoryComponent,
+                children: [
+                    { path: '', redirectTo: 'overview', pathMatch: 'full'},
+                    { path: 'overview', component: SalesCategoryOverviewComponent },
+                    { path: 'add', component: SalesCategoryAddComponent }
+                ]
+            },
             { path: 'product', component: SalesProductComponent,
                 children: [
                     { path: '', redirectTo: 'catalog', pathMatch: 'full'},

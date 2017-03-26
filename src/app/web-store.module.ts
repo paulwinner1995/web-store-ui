@@ -23,6 +23,8 @@ import { SalesProductComponent } from "./sales/product/sales-product.component";
 import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
 import { ProductService } from "./common/product/product.service";
 import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
+import {SalesCategoryOverviewComponent} from "./sales/category/overview/sales-category-overview.component";
+import {SalesCategoryAddComponent} from "./sales/category/new/sales-category-add.component";
 
 @NgModule({
     imports: [
@@ -45,6 +47,8 @@ import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.co
         SalesProductComponent,
         SalesProductCatalogComponent,
         SalesCategoryComponent,
+        SalesCategoryOverviewComponent,
+        SalesCategoryAddComponent,
         SalesProductAddComponent,
     ],
     providers: [
