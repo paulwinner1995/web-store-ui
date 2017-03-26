@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { AlertModule } from 'ng2-bootstrap/alert';
 
 import { WebStoreRoutingModule } from './web-store-routing.module';
 
@@ -28,7 +29,8 @@ import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.co
         BrowserModule,
         HttpModule,
         ReactiveFormsModule,
-        WebStoreRoutingModule
+        WebStoreRoutingModule,
+        AlertModule.forRoot()
     ],
     declarations: [
         DashboardComponent,

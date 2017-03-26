@@ -1,4 +1,8 @@
 <div class="container-fluid">
+    <div *ngFor="let alert of alerts" class="row">
+        <alert [type]="alert.type"
+               [dismissOnTimeout]="alert.timeout">{{alert.message}}</alert>
+    </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="main-login main-center">

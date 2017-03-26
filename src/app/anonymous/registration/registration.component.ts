@@ -31,6 +31,12 @@ export class RegistrationComponent {
             address: ['', Validators.required],
             phoneNumber: ['', Validators.required]
         });
+
+        this.registrationForm.valueChanges
+            .subscribe(
+                (data) => console.log(data),
+                (data) => console.log(data)
+            );
     }
 
     onSubmit() {
