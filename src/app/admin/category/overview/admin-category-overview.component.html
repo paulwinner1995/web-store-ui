@@ -8,13 +8,15 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th class="col-md-10">Название категории</th>
+        <th class="col-md-5">Название категории</th>
+        <th class="col-md-5">Родительская категория</th>
         <th class="col-md-2">Действия</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let category of categories">
-        <td class="col-md-10">{{category.name}}</td>
+        <td class="col-md-5">{{category.name}}</td>
+        <td class="col-md-5">{{category.parentName}}</td>
         <td class="col-md-2">
             <a class="btn btn-primary" role="button">
                 Изменить <span class="glyphicon glyphicon-pencil"></span>
