@@ -7,7 +7,7 @@ import { AlertModule } from 'ng2-bootstrap/alert';
 import { WebStoreRoutingModule } from './web-store-routing.module';
 
 import { DashboardComponent } from './common/dashboard/dashboard.component';
-import { SalesDashboardComponent } from './sales/dashboard/sales-dashboard.component';
+import { AdminDashboardComponent } from './admin/dashboard/admin-dashboard.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CatalogComponent } from './common/catalog/catalog.component';
@@ -17,14 +17,14 @@ import { CategoryService } from './common/category/category.service';
 import { RegistrationComponent } from './anonymous/registration/registration.component';
 import { RegistrationService } from './anonymous/registration/registration.service';
 import { LoginComponent } from './anonymous/login/login.component';
-import { SalesComponent } from "./sales/sales.component";
-import { SalesCategoryComponent } from "./sales/category/sales-category.component";
-import { SalesProductComponent } from "./sales/product/sales-product.component";
-import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
+import { AdminCategoryComponent } from "./admin/category/admin-category.component";
 import { ProductService } from "./common/product/product.service";
-import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
-import {SalesCategoryOverviewComponent} from "./sales/category/overview/sales-category-overview.component";
-import {SalesCategoryAddComponent} from "./sales/category/new/sales-category-add.component";
+import {AdminCategoryOverviewComponent} from "./admin/category/overview/admin-category-overview.component";
+import {AdminCategoryAddComponent} from "./admin/category/new/admin-category-add.component";
+import {AdminProductComponent} from "./admin/product/admin-product.component";
+import {AdminProductCatalogComponent} from "./admin/product/catalog/admin-product-catalog.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.component";
 
 @NgModule({
     imports: [
@@ -42,14 +42,14 @@ import {SalesCategoryAddComponent} from "./sales/category/new/sales-category-add
         LoginComponent,
         CatalogComponent,
         CategoryComponent,
-        SalesComponent,
-        SalesDashboardComponent,
-        SalesProductComponent,
-        SalesProductCatalogComponent,
-        SalesCategoryComponent,
-        SalesCategoryOverviewComponent,
-        SalesCategoryAddComponent,
-        SalesProductAddComponent,
+        AdminComponent,
+        AdminDashboardComponent,
+        AdminProductComponent,
+        AdminProductCatalogComponent,
+        AdminCategoryComponent,
+        AdminCategoryOverviewComponent,
+        AdminCategoryAddComponent,
+        AdminProductAddComponent,
     ],
     providers: [
         RegistrationService,

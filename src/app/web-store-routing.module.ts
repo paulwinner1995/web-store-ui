@@ -5,36 +5,39 @@ import { RegistrationComponent } from './anonymous/registration/registration.com
 import { LoginComponent } from './anonymous/login/login.component';
 import { CatalogComponent } from './common/catalog/catalog.component';
 
-import { SalesComponent } from "./sales/sales.component";
-import { SalesDashboardComponent } from "./sales/dashboard/sales-dashboard.component";
-import { SalesCategoryComponent } from "./sales/category/sales-category.component";
-import { SalesProductComponent } from "./sales/product/sales-product.component";
-import { SalesProductCatalogComponent } from "./sales/product/catalog/sales-product-catalog.component";
-import {SalesProductAddComponent} from "./sales/product/new/sales-product-add.component";
-import {SalesCategoryOverviewComponent} from "./sales/category/overview/sales-category-overview.component";
-import {SalesCategoryAddComponent} from "./sales/category/new/sales-category-add.component";
+import { AdminDashboardComponent } from "./admin/dashboard/admin-dashboard.component";
+import { AdminCategoryComponent } from "./admin/category/admin-category.component";
+import { AdminCategoryOverviewComponent } from "./admin/category/overview/admin-category-overview.component";
+import { AdminCategoryAddComponent } from "./admin/category/new/admin-category-add.component";
+import { AdminProductComponent } from "./admin/product/admin-product.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AdminProductCatalogComponent } from "./admin/product/catalog/admin-product-catalog.component";
+import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.component";
 
 const routes: Routes = [
-    { path: '',  redirectTo: '/', pathMatch: 'full' },
-    { path: 'registration', component: RegistrationComponent },
-    { path: 'login',  component: LoginComponent },
-    { path: 'catalog', component: CatalogComponent },
-    { path: 'sales', component: SalesComponent,
+    {path: '', redirectTo: '/', pathMatch: 'full'},
+    {path: 'registration', component: RegistrationComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'catalog', component: CatalogComponent},
+    {
+        path: 'admin', component: AdminComponent,
         children: [
-            { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-            { path: 'dashboard', component: SalesDashboardComponent },
-            { path: 'category', component: SalesCategoryComponent,
+            {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+            {path: 'dashboard', component: AdminDashboardComponent},
+            {
+                path: 'category', component: AdminCategoryComponent,
                 children: [
-                    { path: '', redirectTo: 'overview', pathMatch: 'full'},
-                    { path: 'overview', component: SalesCategoryOverviewComponent },
-                    { path: 'add', component: SalesCategoryAddComponent }
+                    {path: '', redirectTo: 'overview', pathMatch: 'full'},
+                    {path: 'overview', component: AdminCategoryOverviewComponent},
+                    {path: 'add', component: AdminCategoryAddComponent}
                 ]
             },
-            { path: 'product', component: SalesProductComponent,
+            {
+                path: 'product', component: AdminProductComponent,
                 children: [
-                    { path: '', redirectTo: 'catalog', pathMatch: 'full'},
-                    { path: 'catalog', component: SalesProductCatalogComponent },
-                    { path: 'add', component: SalesProductAddComponent}
+                    {path: '', redirectTo: 'catalog', pathMatch: 'full'},
+                    {path: 'catalog', component: AdminProductCatalogComponent},
+                    {path: 'add', component: AdminProductAddComponent}
                 ]
             }
         ]
@@ -42,7 +45,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes)],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class WebStoreRoutingModule {}
+export class WebStoreRoutingModule {
+}
