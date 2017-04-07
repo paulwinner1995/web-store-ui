@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Observable } from "rxjs";
+import { CategoryService } from "../../../common/category/category.service";
 
 @Component({
     selector: 'ws-admin-category-add',
@@ -9,7 +11,8 @@ export class AdminCategoryAddComponent implements OnInit {
 
     categoryForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder,
+                private categoryService: CategoryService) {}
 
     ngOnInit(): void {
         this.createForm();
@@ -20,6 +23,10 @@ export class AdminCategoryAddComponent implements OnInit {
             name: ['', Validators.required],
             parent: ['']
         });
+    }
+
+    categoryNames(example: string): Observable<string[]> {
+        return this.categoryService.fetchCategoryNames(example);
     }
 
     onSubmit(): void {

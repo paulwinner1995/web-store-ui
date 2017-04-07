@@ -17,9 +17,11 @@
         <!--TODO: Should add live loading of parent categories-->
         <div class="form-group">
             <label for="parent">Подкатегория к</label>
-            <input type="text"
+            <input ngui-auto-complete
+                   type="text"
                    class="form-control"
                    formControlName="parent"
+                   [source]="categoryNames.bind(this)"
                    id="parent">
         </div>
     </form>

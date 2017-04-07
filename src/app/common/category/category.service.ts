@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -18,6 +18,16 @@ export class CategoryService {
         return this.http.get(this.categoryUrl)
             .map(resp => resp.json() || [])
             .catch(this.handleError);
+    }
+
+    fetchCategoryNames(example: string): Observable<string[]> {
+        let url = this.categoryUrl + '/names';
+
+        let params = new URLSearchParams();
+        params.set("example", example);
+
+        return this.http.get(url, { search: params})
+            .map(resp => resp.json() || []);
     }
 
     private handleError (error: Response | any) {
