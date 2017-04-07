@@ -30,6 +30,9 @@ export class AdminCategoryAddComponent implements OnInit {
     }
 
     onSubmit(): void {
-        alert("Category has been saved!");
+        if (!this.categoryForm.valid) return;
+
+        this.categoryService.saveCategory(this.categoryForm.value)
+            .subscribe(() => alert("Category has been saved!"));
     }
 }

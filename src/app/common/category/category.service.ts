@@ -30,6 +30,11 @@ export class CategoryService {
             .map(resp => resp.json() || []);
     }
 
+    saveCategory(category: Category): Observable<Category> {
+        return this.http.post(this.categoryUrl, category)
+            .map(resp => resp.json() || {});
+    }
+
     private handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
