@@ -16,8 +16,7 @@ export class CategoryService {
 
     fetchCategories() : Observable<Category[]> {
         return this.http.get(this.categoryUrl)
-            .map(resp => resp.json() || [])
-            .catch(this.handleError);
+            .map(resp => resp.json() || []);
     }
 
     fetchCategoryNames(example: string): Observable<string[]> {
@@ -30,22 +29,19 @@ export class CategoryService {
             .map(resp => resp.json() || []);
     }
 
+    fetchCategory(name: string): Observable<Category> {
+        let url = this.categoryUrl + '/' + name;
+
+        return this.http.get(url).map(resp => resp.json() || {});
+    }
+
     saveCategory(category: Category): Observable<Category> {
         return this.http.post(this.categoryUrl, category)
             .map(resp => resp.json() || {});
     }
 
-    private handleError (error: Response | any) {
-        // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Observable.throw(errMsg);
+    updateCategory(category: Category): Observable<Category> {
+        return this.http.put(this.categoryUrl, category)
+            .map(resp => resp.json() || {});
     }
 }

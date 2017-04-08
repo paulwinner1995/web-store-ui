@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class AdminCategoryAddComponent implements OnInit {
 
-    category: Category = new Category();
+    category: Category = new Category('');
 
     constructor(private router: Router, private categoryService: CategoryService) {}
 

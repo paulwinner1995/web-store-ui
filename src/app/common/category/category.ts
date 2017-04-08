@@ -1,8 +1,6 @@
 export class Category {
 
-    name: String;
-
-    parentName: String;
-
-    subCategories: Category[]
+    constructor(
+        public name: string,
+        public parentName? : string) {}
 }
