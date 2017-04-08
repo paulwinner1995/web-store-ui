@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ng2-bootstrap/alert';
@@ -32,6 +32,7 @@ import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.
         BrowserModule,
         HttpModule,
         ReactiveFormsModule,
+        FormsModule,
         NguiAutoCompleteModule,
         WebStoreRoutingModule,
         AlertModule.forRoot()

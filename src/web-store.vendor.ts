@@ -7,4 +7,7 @@ import '@angular/router';
 import '@angular/forms';
 import '@angular/http';
 
+import '@ngui/auto-complete';
+
 import 'rxjs';
+

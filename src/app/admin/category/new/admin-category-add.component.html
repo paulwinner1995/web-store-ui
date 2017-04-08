@@ -1,27 +1,26 @@
 <div>
-    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" novalidate>
+    <form (ngSubmit)="onSubmit()" #categoryForm="ngForm" novalidate>
         <div class="form-group">
             <div class="text-align-right">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" [disabled]="!categoryForm.form.valid">
                     Cохранить <span class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
             </div>
         </div>
         <div class="form-group">
-            <label for="name">Название</label>
-            <input type="text"
-                   class="form-control"
-                   formControlName="name"
-                   id="name">
+            <label for="name"><span>*</span> Название:</label>
+            <input id="name" type="text" class="form-control" name="name"
+                   [(ngModel)]="category.name" #name="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
+                Введите название категории
+            </div>
         </div>
         <div class="form-group">
-            <label for="parent">Подкатегория к</label>
-            <input ngui-auto-complete
-                   type="text"
-                   class="form-control"
-                   formControlName="parent"
-                   [source]="categoryNames.bind(this)"
-                   id="parent">
+            <label for="parent">Подкатегория к:</label>
+            <input id="parent" type="text" class="form-control" name="parent"
+                   ngui-auto-complete
+                   [(ngModel)]="category.parentName" [source]="categoryNames.bind(this)">
         </div>
+        {{category | json}}
     </form>
 </div>
