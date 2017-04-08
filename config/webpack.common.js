@@ -34,6 +34,10 @@ module.exports = {
             {
                 test: /\.json$/,
                 use: 'json-loader'
+            },
+            {
+                test: /\.less$/,
+                use: 'less-loader'
             }
         ]
     },
