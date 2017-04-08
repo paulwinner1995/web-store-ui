@@ -23,8 +23,8 @@ export class AdminCategoryAddComponent implements OnInit {
     onSubmit(): void {
         this.categoryService.saveCategory(this.category)
             .subscribe(
+                (resp) => this.router.navigate(['/admin/category']),
                 (error) => console.log(error),
-                () => this.router.navigate(['/admin/category'])
             );
     }
 }
