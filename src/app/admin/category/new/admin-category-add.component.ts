@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { CategoryService } from "../../../common/category/category.service";
 import { Category } from "../../../common/category/category";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'ws-admin-category-add',
@@ -11,7 +12,7 @@ export class AdminCategoryAddComponent implements OnInit {
 
     category: Category = new Category();
 
-    constructor(private categoryService: CategoryService) {}
+    constructor(private router: Router, private categoryService: CategoryService) {}
 
     ngOnInit(): void {}
 
@@ -21,6 +22,6 @@ export class AdminCategoryAddComponent implements OnInit {
 
     onSubmit(): void {
         this.categoryService.saveCategory(this.category)
-            .subscribe(() => alert("Category has been saved!"));
+            .subscribe(() => this.router.navigate(['/admin/category']));
     }
 }
