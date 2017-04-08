@@ -6,6 +6,7 @@ import '@angular/common';
 import '@angular/router';
 import '@angular/forms';
 import '@angular/http';
+import '@angular/animations';
 
 import '@ngui/auto-complete';
 

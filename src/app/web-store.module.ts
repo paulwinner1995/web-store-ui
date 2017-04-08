@@ -2,7 +2,6 @@ import { NgModule }      from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { AlertModule } from 'ng2-bootstrap/alert';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 
 import { WebStoreRoutingModule } from './web-store-routing.module';
@@ -34,8 +33,7 @@ import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.
         ReactiveFormsModule,
         FormsModule,
         NguiAutoCompleteModule,
-        WebStoreRoutingModule,
-        AlertModule.forRoot()
+        WebStoreRoutingModule
     ],
     declarations: [
         DashboardComponent,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../../common/product/product.service";
 import { Product } from "../../../common/product/product";
+import { Page } from "../../../common/pagination/page";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: 'ws-admin-product-catalog',
@@ -8,19 +10,22 @@ import { Product } from "../../../common/product/product";
 })
 export class AdminProductCatalogComponent implements OnInit {
 
-    products: Product[];
+    page: Page<Product>;
+
+    loading: Subscription;
 
     constructor(private productService: ProductService) {
+        this.page = new Page<Product>();
     }
 
     ngOnInit(): void {
-        this.fetchProducts();
+        this.loading = this.fetchProducts();
     }
 
-    fetchProducts() {
-        this.productService.fetchProducts()
+    fetchProducts(): Subscription {
+        return this.productService.fetchProducts()
             .subscribe(
-                page => this.products = page.content,
+                page => this.page = page,
                 error => console.log(error)
             )
     }
