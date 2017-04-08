@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 
@@ -37,11 +38,11 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: 'less-loader'
+                loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!less-loader'})
             }
         ]
     },
-
+    // TODO: investigate how to use css files
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
@@ -49,6 +50,8 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: 'src/index.html'
-        })
+        }),
+
+        new ExtractTextPlugin("[name].css")
     ]
 };
