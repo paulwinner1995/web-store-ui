@@ -1,4 +1,7 @@
 export class Product {
-    name: string;
-    xref: string;
+
+    constructor(public name?: string,
+                public code?: string,
+                public amount?: number,
+                public price?: number) {}
 }
