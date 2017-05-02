@@ -12,28 +12,43 @@
         </div>
         <form (ngSubmit)="onSubmit()" #productForm="ngForm" novalidate class="col-md-9">
             <div class="form-group">
-                <label for="name">Название:</label>
+                <label for="name"><span>*</span> Название:</label>
                 <input type="text" class="form-control" id="name"
                        name="name"
-                       [(ngModel)]="product.name" >
+                       [(ngModel)]="product.name"
+                       #name="ngModel"
+                       required>
+                <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
+                    Введите название товара
+                </div>
             </div>
             <div class="form-group">
-                <label for="price">Цена:</label>
+                <label for="price"><span>*</span> Цена:</label>
                 <input type="text" class="form-control" id="price"
                        name="price"
-                       [(ngModel)]="product.price">
+                       [(ngModel)]="product.price"
+                       #price="ngModel"
+                       required>
+                <div class="alert alert-danger" [hidden]="price.valid || price.pristine">
+                    Введите цену товара
+                </div>
             </div>
             <div class="form-group">
-                <label for="category">Категория:</label>
+                <label for="category"><span>*</span> Категория:</label>
                 <input type="text" class="form-control" id="category"
                        name="category"
                        ngui-auto-complete
-                       [(ngModel)]="product.category" [source]="categoryNames.bind(this)">
+                       [(ngModel)]="product.category" [source]="categoryNames.bind(this)"
+                       #category="ngModel"
+                       required>
+                <div class="alert alert-danger" [hidden]="category.valid || category.pristine">
+                    Выберите категорию товара
+                </div>
             </div>
-            <!--<div class="form-group">-->
-                <!--<label for="description">Описание:</label>-->
-                <!--<textarea class="form-control" id="description"></textarea>-->
-            <!--</div>-->
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea class="form-control" id="description"></textarea>
+            </div>
             <input type="submit" value="submit">
             <div>{{product | json}}</div>
         </form>
