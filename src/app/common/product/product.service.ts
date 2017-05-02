@@ -19,4 +19,9 @@ export class ProductService {
         return this.http.get(this.url)
             .map(resp => resp.json() || {})
     }
+
+    saveProduct(product: Product): Observable<Product> {
+        return this.http.post(this.url, product)
+            .map(resp => resp.json() || {})
+    }
 }

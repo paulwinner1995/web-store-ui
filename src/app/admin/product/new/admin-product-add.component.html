@@ -1,66 +1,52 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div>
-                <img class="img-thumbnail" src="http://www.rusnardy.com/shopping_cart.png">
-            </div>
-            <div class="wide-button">
-                <button class="btn btn-wide btn-primary">
-                    Загрузить изображение <span class="glyphicon glyphicon-file"></span>
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm" novalidate>
+        <div class="form-group">
+            <div class="text-align-right">
+                <button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">
+                    Cохранить <span class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
             </div>
         </div>
-        <form (ngSubmit)="onSubmit()" #productForm="ngForm" novalidate class="col-md-9">
-            <div class="form-group">
-                <label for="name"><span>*</span> Название:</label>
-                <input type="text" class="form-control" id="name"
-                       name="name"
-                       [(ngModel)]="product.name"
-                       #name="ngModel"
-                       required>
-                <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
-                    Введите название товара
-                </div>
+        <div class="form-group">
+            <label for="name"><span>*</span> Название:</label>
+            <input type="text" class="form-control" id="name"
+                   name="name"
+                   [(ngModel)]="product.name"
+                   #name="ngModel"
+                   required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
+                Введите название товара
             </div>
-            <div class="form-group">
-                <label for="price"><span>*</span> Цена:</label>
-                <input type="text" class="form-control" id="price"
-                       name="price"
-                       [(ngModel)]="product.price"
-                       #price="ngModel"
-                       required>
-                <div class="alert alert-danger" [hidden]="price.valid || price.pristine">
-                    Введите цену товара
-                </div>
+        </div>
+        <div class="form-group">
+            <label for="price"><span>*</span> Цена:</label>
+            <input type="text" class="form-control" id="price"
+                   name="price"
+                   [(ngModel)]="product.price"
+                   #price="ngModel"
+                   required>
+            <div class="alert alert-danger" [hidden]="price.valid || price.pristine">
+                Введите цену товара
             </div>
-            <div class="form-group">
-                <label for="category"><span>*</span> Категория:</label>
-                <input type="text" class="form-control" id="category"
-                       name="category"
-                       ngui-auto-complete
-                       [(ngModel)]="product.category" [source]="categoryNames.bind(this)"
-                       #category="ngModel"
-                       required>
-                <div class="alert alert-danger" [hidden]="category.valid || category.pristine">
-                    Выберите категорию товара
-                </div>
+        </div>
+        <div class="form-group">
+            <label for="category"><span>*</span> Категория:</label>
+            <input type="text" class="form-control" id="category"
+                   name="category"
+                   ngui-auto-complete
+                   [(ngModel)]="product.category" [source]="categoryNames.bind(this)"
+                   #category="ngModel"
+                   required>
+            <div class="alert alert-danger" [hidden]="category.valid || category.pristine">
+                Выберите категорию товара
             </div>
-            <div class="form-group">
-                <label for="description">Описание:</label>
-                <textarea class="form-control" id="description"></textarea>
-            </div>
-            <input type="submit" value="submit">
-            <div>{{product | json}}</div>
-        </form>
-    </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Описание:</label>
+            <textarea class="form-control" id="description"
+                      name="description"
+                      [(ngModel)]="product.description"></textarea>
+        </div>
+        <div>{{product | json}}</div>
+    </form>
 </div>
-
-<style>
-    .wide-button {
-        padding: .5em;
-    }
-
-    .btn-wide {
-        width: 100%;
-    }
-</style>
