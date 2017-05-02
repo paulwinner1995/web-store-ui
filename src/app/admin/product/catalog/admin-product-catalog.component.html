@@ -1,28 +1,33 @@
-<div class="row">
-    <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Название</th>
-            <th>Код товара</th>
-            <th>Колличество</th>
-            <th>Стоимость</th>
-            <th>Действия</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let product of page.content">
-            <td>{{product.name}}</td>
-            <td>{{product.code}}</td>
-            <td>{{product.amount}}</td>
-            <td>{{product.price}}</td>
-            <td>
-                <div class="btn-group" role="group">
-                    <a class="btn btn-success">
-                        Подробно <span class="glyphicon glyphicon-plus-sign"></span>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div class="row margin-bottom-20-px">
+    <div class="col-md-offset-10 col-md-2">
+        <a class="btn btn-success" routerLink="../add">
+            Новый товар <span class="glyphicon glyphicon-plus-sign"></span>
+        </a>
+    </div>
 </div>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Код товара</th>
+        <th>Колличество</th>
+        <th>Стоимость</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of page.content">
+        <td>{{product.name}}</td>
+        <td>{{product.code}}</td>
+        <td>{{product.amount}}</td>
+        <td>{{product.price}}</td>
+        <td>
+            <div class="btn-group" role="group">
+                <a class="btn btn-success">
+                    Подробно <span class="glyphicon glyphicon-plus-sign"></span>
+                </a>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

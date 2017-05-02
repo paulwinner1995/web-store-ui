@@ -9,7 +9,8 @@
         </div>
         <div class="form-group">
             <label for="name"><span>*</span> Название:</label>
-            <input id="name" type="text" class="form-control" name="name"
+            <input type="text" class="form-control" id="name"
+                   name="name"
                    [(ngModel)]="category.name" #name="ngModel" required>
             <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
                 Введите название категории
@@ -17,7 +18,8 @@
         </div>
         <div class="form-group">
             <label for="parent">Подкатегория к:</label>
-            <input id="parent" type="text" class="form-control" name="parent"
+            <input type="text" class="form-control" id="parent"
+                   name="parent"
                    ngui-auto-complete
                    [(ngModel)]="category.parentName" [source]="categoryNames.bind(this)">
         </div>

@@ -10,27 +10,33 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-9">
+        <form (ngSubmit)="onSubmit()" #productForm="ngForm" novalidate class="col-md-9">
             <div class="form-group">
                 <label for="name">Название:</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name"
+                       name="name"
+                       [(ngModel)]="product.name" >
             </div>
             <div class="form-group">
                 <label for="price">Цена:</label>
-                <input type="text" class="form-control" id="price">
+                <input type="text" class="form-control" id="price"
+                       name="price"
+                       [(ngModel)]="product.price">
             </div>
             <div class="form-group">
                 <label for="category">Категория:</label>
-                <select class="form-control" id="category">
-                    <option>Категория 1</option>
-                    <option>Категория 2</option>
-                </select>
+                <input type="text" class="form-control" id="category"
+                       name="category"
+                       ngui-auto-complete
+                       [(ngModel)]="product.category" [source]="categoryNames.bind(this)">
             </div>
-            <div class="form-group">
-                <label for="description">Описание:</label>
-                <textarea class="form-control" id="description"></textarea>
-            </div>
-        </div>
+            <!--<div class="form-group">-->
+                <!--<label for="description">Описание:</label>-->
+                <!--<textarea class="form-control" id="description"></textarea>-->
+            <!--</div>-->
+            <input type="submit" value="submit">
+            <div>{{product | json}}</div>
+        </form>
     </div>
 </div>
 
