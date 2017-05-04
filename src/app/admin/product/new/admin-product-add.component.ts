@@ -5,6 +5,7 @@ import {CategoryService} from "../../../common/category/category.service";
 import {Observable} from "rxjs/Observable";
 import {Product} from "../../../common/product/product";
 import {ProductService} from "../../../common/product/product.service";
+import {ProductDetail} from "../../../common/product/product.detail";
 
 @Component({
     selector: 'ws-admin-product-add',
@@ -23,6 +24,14 @@ export class AdminProductAddComponent implements OnInit {
 
     categoryNames(example: string): Observable<string[]> {
         return this.categoryService.fetchCategoryNames(example);
+    }
+
+    addDetail(): void {
+        this.product.addDetail(new ProductDetail());
+    }
+
+    removeDetail(productDetail: ProductDetail): void {
+        this.product.removeDetail(productDetail)
     }
 
     onSubmit(): void {

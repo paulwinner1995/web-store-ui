@@ -47,6 +47,29 @@
                       name="description"
                       [ngModel]="product.description"></textarea>
         </div>
+        <div class="row" *ngFor="let detail of product.getDetails(); let i = index">
+            <div class="form-group col-md-5">
+                <label for="{{'detailKey' + i}}">Характеристика:</label>
+                <input type="text" class="form-control" id="{{'detailKey' + i}}"
+                       name="detail"
+                       [(ngModel)]="detail.key">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="{{'detailValue' + i}}">Значение:</label>
+                <input type="text" class="form-control" id="{{'detailValue' + i}}"
+                       name="detail"
+                       [(ngModel)]="detail.value">
+            </div>
+            <div class="form-group col-md-2">
+                <!--TODO: Investigate how I can get rid of this workaround-->
+                <label for="{{'detailRemove' + i}}">&nbsp;</label>
+                <button type="button" class="form-control btn btn-danger" id="{{'detailRemove' + i}}"
+                        (click)="removeDetail(detail)">Удалить</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="form-control btn btn-primary" (click)="addDetail()">Добавить характеристику</button>
+        </div>
         <div>{{product | json}}</div>
     </form>
 </div>
