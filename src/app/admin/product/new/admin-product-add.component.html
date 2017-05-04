@@ -11,7 +11,7 @@
             <label for="name"><span>*</span> Название:</label>
             <input type="text" class="form-control" id="name"
                    name="name"
-                   [ngModel]="product.name"
+                   [(ngModel)]="product.name"
                    #name="ngModel"
                    required>
             <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
@@ -45,19 +45,19 @@
             <label for="description">Описание:</label>
             <textarea class="form-control" id="description"
                       name="description"
-                      [ngModel]="product.description"></textarea>
+                      [(ngModel)]="product.description"></textarea>
         </div>
         <div class="row" *ngFor="let detail of product.getDetails(); let i = index">
             <div class="form-group col-md-5">
-                <label for="{{'detailKey' + i}}">Характеристика:</label>
-                <input type="text" class="form-control" id="{{'detailKey' + i}}"
-                       name="detail"
-                       [(ngModel)]="detail.key">
+                <label for="{{'detailProperty' + i}}">Характеристика:</label>
+                <input type="text" class="form-control" id="{{'detailProperty' + i}}"
+                       name="{{'property' + i}}"
+                       [(ngModel)]="detail.property">
             </div>
             <div class="form-group col-md-5">
                 <label for="{{'detailValue' + i}}">Значение:</label>
                 <input type="text" class="form-control" id="{{'detailValue' + i}}"
-                       name="detail"
+                       name="{{'value' + i}}"
                        [(ngModel)]="detail.value">
             </div>
             <div class="form-group col-md-2">

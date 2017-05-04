@@ -1,4 +1,4 @@
 export class ProductDetail {
 
-    constructor(public key?: string, public value?: string) {}
+    constructor(public property?: string, public value?: string) {}
 }

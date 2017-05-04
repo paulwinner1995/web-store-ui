@@ -2,7 +2,7 @@ import {ProductDetail} from "./product.detail";
 
 export class Product {
 
-    private productDetails: ProductDetail[];
+    private details: ProductDetail[];
 
     constructor(public name?: string,
                 public code?: string,
@@ -10,19 +10,19 @@ export class Product {
                 public price?: number,
                 public category?: string,
                 public description?: string) {
-        this.productDetails = [];
+        this.details = [];
     }
 
     public addDetail(productDetail: ProductDetail): void {
-        this.productDetails.push(productDetail)
+        this.details.push(productDetail)
     }
 
     public removeDetail(productDetail: ProductDetail): void {
-        let index = this.productDetails.indexOf(productDetail);
-        this.productDetails.splice(index, 1);
+        let index = this.details.indexOf(productDetail);
+        this.details.splice(index, 1);
     }
 
     public getDetails(): ProductDetail[] {
-        return this.productDetails.slice(0, this.productDetails.length);
+        return this.details.slice(0, this.details.length);
     }
 }
