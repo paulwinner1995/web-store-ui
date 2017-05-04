@@ -11,7 +11,7 @@
             <label for="name"><span>*</span> Название:</label>
             <input type="text" class="form-control" id="name"
                    name="name"
-                   [(ngModel)]="product.name"
+                   [ngModel]="product.name"
                    #name="ngModel"
                    required>
             <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
@@ -45,7 +45,7 @@
             <label for="description">Описание:</label>
             <textarea class="form-control" id="description"
                       name="description"
-                      [(ngModel)]="product.description"></textarea>
+                      [ngModel]="product.description"></textarea>
         </div>
         <div>{{product | json}}</div>
     </form>
