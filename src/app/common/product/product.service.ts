@@ -1,11 +1,12 @@
-import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs";
-import {Product} from "./product";
+import { Injectable } from "@angular/core";
+import { Http } from "@angular/http";
+import { Observable } from "rxjs";
+import { Product } from "./product";
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {Page} from "../pagination/page";
+import { Page } from "../pagination/page";
+import { PageRequest } from "../pagination/page.request";
 
 @Injectable()
 export class ProductService {
@@ -15,8 +16,9 @@ export class ProductService {
     constructor(private http: Http) {
     }
 
-    fetchProducts(): Observable<Page<Product>> {
-        return this.http.get(this.url)
+    fetchProducts(pageRequest?: PageRequest): Observable<Page<Product>> {
+        let params = pageRequest ? pageRequest.getSearchParams() : {};
+        return this.http.get(this.url, { search: params})
             .map(resp => resp.json() || {})
     }
 
