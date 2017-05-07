@@ -18,7 +18,7 @@ export class AdminCategoryOverviewComponent implements OnInit, IPageable {
     }
 
     ngOnInit(): void {
-        this.fetchCategories();
+        this.onPageChange(new PageRequest(0, 10))
     }
 
     fetchCategories(): void {

@@ -21,11 +21,11 @@ export class AdminProductCatalogComponent implements OnInit, IPageable {
     }
 
     ngOnInit(): void {
-        this.loading = this.fetchProducts();
+        this.loading = this.fetchProducts(new PageRequest(0, 10));
     }
 
-    fetchProducts(): Subscription {
-        return this.productService.fetchProducts()
+    fetchProducts(pageRequest: PageRequest): Subscription {
+        return this.productService.fetchProducts(pageRequest)
             .subscribe(
                 page => this.page = page,
                 error => console.log(error)
@@ -33,10 +33,6 @@ export class AdminProductCatalogComponent implements OnInit, IPageable {
     }
 
     onPageChange(pageRequest: PageRequest): void {
-        this.productService.fetchProducts(pageRequest)
-            .subscribe(
-                page => this.page = page,
-                error => console.log(error)
-            )
+        this.fetchProducts(pageRequest);
     }
 }
