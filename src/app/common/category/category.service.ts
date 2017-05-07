@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Category } from './category';
+import { PageRequest } from "../pagination/page.request";
+import { Page } from "../pagination/page";
 
 @Injectable()
 export class CategoryService {
@@ -14,8 +16,9 @@ export class CategoryService {
 
     constructor(private http: Http) {}
 
-    fetchCategories() : Observable<Category[]> {
-        return this.http.get(this.categoryUrl)
+    fetchCategories(pageRequest?: PageRequest) : Observable<Page<Category>> {
+        let params = pageRequest ? pageRequest.getSearchParams() : {};
+        return this.http.get(this.categoryUrl, { search: params })
             .map(resp => resp.json() || []);
     }
 
@@ -27,12 +30,6 @@ export class CategoryService {
 
         return this.http.get(url, { search: params})
             .map(resp => resp.json() || []);
-    }
-
-    fetchCategory(name: string): Observable<Category> {
-        let url = this.categoryUrl + '/' + name;
-
-        return this.http.get(url).map(resp => resp.json() || {});
     }
 
     saveCategory(category: Category): Observable<Category> {

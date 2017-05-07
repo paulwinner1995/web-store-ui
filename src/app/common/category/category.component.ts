@@ -3,16 +3,21 @@ import { OnInit } from '@angular/core';
 
 import { Category } from './category';
 import { CategoryService } from './category.service';
+import { Page } from "../pagination/page";
+import { IPageable } from "../pagination/pageable";
+import { PageRequest } from "../pagination/page.request";
 
 @Component({
     selector: 'web-store-category',
     templateUrl: './category.component.html'
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit, IPageable {
 
-    categories: Category[];
+    page: Page<Category>;
 
-    constructor(private categoryService: CategoryService) {}
+    constructor(private categoryService: CategoryService) {
+        this.page = new Page<Category>();
+    }
 
     ngOnInit(): void {
         this.fetchCategories();
@@ -21,10 +26,16 @@ export class CategoryComponent implements OnInit {
     fetchCategories() {
         this.categoryService.fetchCategories()
             .subscribe(
-                categories => this.categories = categories,
+                page => this.page = page,
                 error => console.log(error)
             );
     }
 
-    fetchSubCategories(category: Category) {}
+    onPageChange(pageRequest: PageRequest): void {
+        this.categoryService.fetchCategories(pageRequest)
+            .subscribe(
+                page => this.page = page,
+                error => console.log(error)
+            )
+    }
 }

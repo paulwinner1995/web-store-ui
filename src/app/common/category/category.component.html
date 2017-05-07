@@ -9,8 +9,7 @@
             <div class="panel-body">
                 <ul class="list-group">
                     <li class="list-group-item"
-                        *ngFor="let category of categories"
-                        (click)="fetchSubCategories(category)">
+                        *ngFor="let category of page.content">
                         <span class="badge">14</span> {{category.name}}
                     </li>
                 </ul>

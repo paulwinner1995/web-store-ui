@@ -4,6 +4,7 @@ import { Product } from "../../../common/product/product";
 import { Page } from "../../../common/pagination/page";
 import { Subscription } from "rxjs";
 import { IPageable } from "../../../common/pagination/pageable";
+import { PageRequest } from "../../../common/pagination/page.request";
 
 @Component({
     selector: 'ws-admin-product-catalog',
@@ -31,8 +32,8 @@ export class AdminProductCatalogComponent implements OnInit, IPageable {
             )
     }
 
-    onPageChange(event: any): void {
-        this.productService.fetchProducts(event.pageRequest)
+    onPageChange(pageRequest: PageRequest): void {
+        this.productService.fetchProducts(pageRequest)
             .subscribe(
                 page => this.page = page,
                 error => console.log(error)
