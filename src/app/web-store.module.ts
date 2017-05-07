@@ -19,12 +19,13 @@ import { RegistrationService } from './anonymous/registration/registration.servi
 import { LoginComponent } from './anonymous/login/login.component';
 import { AdminCategoryComponent } from "./admin/category/admin-category.component";
 import { ProductService } from "./common/product/product.service";
-import {AdminCategoryOverviewComponent} from "./admin/category/overview/admin-category-overview.component";
-import {AdminCategoryAddComponent} from "./admin/category/new/admin-category-add.component";
-import {AdminProductComponent} from "./admin/product/admin-product.component";
-import {AdminProductCatalogComponent} from "./admin/product/catalog/admin-product-catalog.component";
+import { AdminCategoryOverviewComponent } from "./admin/category/overview/admin-category-overview.component";
+import { AdminCategoryAddComponent } from "./admin/category/new/admin-category-add.component";
+import { AdminProductComponent } from "./admin/product/admin-product.component";
+import { AdminProductCatalogComponent } from "./admin/product/catalog/admin-product-catalog.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.component";
+import { PaginationComponent } from "./common/pagination/pagination.component";
 
 @NgModule({
     imports: [
@@ -51,6 +52,7 @@ import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.
         AdminCategoryOverviewComponent,
         AdminCategoryAddComponent,
         AdminProductAddComponent,
+        PaginationComponent
     ],
     providers: [
         RegistrationService,
@@ -61,4 +63,5 @@ import { AdminProductAddComponent } from "./admin/product/new/admin-product-add.
         DashboardComponent
     ]
 })
-export class WebStoreModule { }
+export class WebStoreModule {
+}
