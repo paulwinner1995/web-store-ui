@@ -13,7 +13,16 @@
                             <!--TODO: Investigate how to solve text overflow-->
                             <span>{{product.name}}</span>
                             <p>...</p>
-                            <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-success" role="button">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> Купить
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="price">{{product.price}} грн.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,3 +32,8 @@
 
     </div>
 </div>
+<style>
+    .price {
+        font-size: 1.5em;
+    }
+</style>
