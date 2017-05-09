@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Page } from "./page";
 import { PageRequest } from "./page.request";
+import * as _ from "lodash";
 
 @Component({
     selector: 'ng-pagination',
@@ -115,11 +116,11 @@ export class PaginationComponent implements OnInit, OnChanges {
             return PaginationComponent.calculatePagesOnLast(current, config.countOfPages);
         }
 
-        if (current.number < previous.number && !pages.filter(page => page == current.number)) {
+        if (current.number < previous.number && current.number == _.min(pages)) {
             return PaginationComponent.calculatePagesOnPrev(pages);
         }
 
-        if (current.number > previous.number && !pages.filter(page => page == current.number)) {
+        if (current.number > previous.number && current.number == _.max(pages)) {
             return PaginationComponent.calculatePagesOnNext(current, pages);
         }
 
@@ -146,7 +147,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     }
 
     private static calculatePagesOnNext(page: Page<any>, oldPages: number[]): number[] {
-        let maxPage = oldPages[oldPages.length - 1];
+        let maxPage = _.last(oldPages);
 
         oldPages.shift();
 
@@ -156,14 +157,14 @@ export class PaginationComponent implements OnInit, OnChanges {
     }
 
     private static calculatePagesOnPrev(oldPages: number[]): number[] {
-        let pages = [];
-        let minPage = oldPages[0];
+        let pages: number[] = [];
+        let minPage = _.head(oldPages);
 
         oldPages.pop();
 
-        if(minPage > 0) pages.push(minPage - 1, oldPages);
+        if (minPage == 0) return oldPages;
 
-        return oldPages;
+        return _.union([minPage - 1], oldPages);
     }
 }
 
