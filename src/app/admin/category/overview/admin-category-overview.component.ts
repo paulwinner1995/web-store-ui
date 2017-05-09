@@ -2,14 +2,14 @@ import { OnInit, Component } from "@angular/core";
 import { Category } from "../../../common/category/category";
 import { CategoryService } from "../../../common/category/category.service";
 import { Page } from "../../../common/pagination/page";
-import { IPageable } from "../../../common/pagination/pageable";
+import { OnPageChange } from "../../../common/pagination/pageable";
 import { PageRequest } from "../../../common/pagination/page.request";
 
 @Component({
     selector: 'ws-admin-category-overview',
     templateUrl: './admin-category-overview.component.html'
 })
-export class AdminCategoryOverviewComponent implements OnInit, IPageable {
+export class AdminCategoryOverviewComponent implements OnInit, OnPageChange {
 
     page: Page<Category>;
 

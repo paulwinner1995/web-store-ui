@@ -3,14 +3,14 @@ import { ProductService } from "../../../common/product/product.service";
 import { Product } from "../../../common/product/product";
 import { Page } from "../../../common/pagination/page";
 import { Subscription } from "rxjs";
-import { IPageable } from "../../../common/pagination/pageable";
+import { OnPageChange } from "../../../common/pagination/pageable";
 import { PageRequest } from "../../../common/pagination/page.request";
 
 @Component({
     selector: 'ws-admin-product-catalog',
     templateUrl: './admin-product-catalog.component.html'
 })
-export class AdminProductCatalogComponent implements OnInit, IPageable {
+export class AdminProductCatalogComponent implements OnInit, OnPageChange {
 
     page: Page<Product>;
 
@@ -21,7 +21,7 @@ export class AdminProductCatalogComponent implements OnInit, IPageable {
     }
 
     ngOnInit(): void {
-        this.loading = this.fetchProducts(new PageRequest(0, 10));
+        this.loading = this.fetchProducts(new PageRequest(0, 2));
     }
 
     fetchProducts(pageRequest: PageRequest): Subscription {

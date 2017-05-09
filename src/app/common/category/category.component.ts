@@ -4,14 +4,14 @@ import { OnInit } from '@angular/core';
 import { Category } from './category';
 import { CategoryService } from './category.service';
 import { Page } from "../pagination/page";
-import { IPageable } from "../pagination/pageable";
+import { OnPageChange } from "../pagination/pageable";
 import { PageRequest } from "../pagination/page.request";
 
 @Component({
     selector: 'web-store-category',
     templateUrl: './category.component.html'
 })
-export class CategoryComponent implements OnInit, IPageable {
+export class CategoryComponent implements OnInit, OnPageChange {
 
     page: Page<Category>;
 
