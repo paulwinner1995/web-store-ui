@@ -5,7 +5,7 @@ import { PageRequest } from "./page.request";
 @Component({
     selector: 'ng-pagination',
     template: `
-        <div class="row">
+        <div *ngIf="page.totalPages > 1" class="row">
             <div class="col-md-6 text-left">
                 <span class="pagination">с {{pageInfo.from}} по {{pageInfo.to}} из {{pageInfo.total}}</span>
             </div>
